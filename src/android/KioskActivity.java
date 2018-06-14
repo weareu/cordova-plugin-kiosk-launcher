@@ -6,7 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import org.apache.cordova.*;
 import android.widget.*;
-import android.view.WindowManager;
+import android.view.*;
 
 public class KioskActivity extends CordovaActivity {
 
@@ -14,8 +14,6 @@ public class KioskActivity extends CordovaActivity {
     public static volatile boolean kioskModeEnabled = false;
 
     public Context context = null;
-    private static final boolean IS_AT_LEAST_LOLLIPOP = Build.VERSION.SDK_INT >= 21;
-
     protected void onStart() {
         super.onStart();
         System.out.println("KioskActivity started");
@@ -37,7 +35,7 @@ public class KioskActivity extends CordovaActivity {
             finish(); // prevent more instances of kiosk activity
         }
 
-        context = IS_AT_LEAST_LOLLIPOP ? cordova.getActivity().getWindow().getContext() : cordova.getActivity().getApplicationContext();
+        context = getWindow().getContext();
 
         loadUrl(launchUrl);
         preventStatusBarExpansion(context);
