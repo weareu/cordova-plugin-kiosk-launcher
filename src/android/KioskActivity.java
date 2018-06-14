@@ -8,6 +8,8 @@ import org.apache.cordova.*;
 import android.widget.*;
 import android.view.*;
 
+import android.graphics.PixelFormat;
+
 public class KioskActivity extends CordovaActivity {
 
     public static volatile boolean running = false;
