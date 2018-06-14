@@ -85,7 +85,6 @@ public class KioskActivity extends CordovaActivity {
     
         @Override
         public boolean onInterceptTouchEvent(MotionEvent ev) {
-            Log.v("customViewGroup", "**********Intercepted");
             return true;
         }
     }
