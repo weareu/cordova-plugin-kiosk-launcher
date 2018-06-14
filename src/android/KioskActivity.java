@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import org.apache.cordova.*;
 import android.widget.*;
+import android.view.WindowManager;
 
 public class KioskActivity extends CordovaActivity {
 
