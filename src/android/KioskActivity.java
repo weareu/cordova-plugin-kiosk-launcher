@@ -27,6 +27,7 @@ public class KioskActivity extends CordovaActivity {
     public void onCreate(Bundle savedInstanceState) {
         System.out.println("KioskActivity paused");
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY);
         super.init();
 
         if (running) {
