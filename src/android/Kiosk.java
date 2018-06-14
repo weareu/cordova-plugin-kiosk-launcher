@@ -30,6 +30,8 @@ public class Kiosk extends CordovaPlugin {
                 return true;
             } else if (SET_KIOSK_ENABLED.equals(action)) {
                 KioskActivity.kioskModeEnabled = args.getBoolean(0);
+                if(!KioskActivity.kioskModeEnabled)
+                    KioskActivity.stopPreventStatusBarExpansion(cordova.getActivity().getApplicationContext());
                 callbackContext.success();
                 return true;
             } else if (SWITCH_LAUNCHER.equals(action)) {

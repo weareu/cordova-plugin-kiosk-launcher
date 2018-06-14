@@ -14,6 +14,7 @@ public class KioskActivity extends CordovaActivity {
 
     public static volatile boolean running = false;
     public static volatile boolean kioskModeEnabled = false;
+    public static customViewGroup lastViewGroup = null;
 
     public Context context = null;
     protected void onStart() {
@@ -69,10 +70,21 @@ public class KioskActivity extends CordovaActivity {
         localLayoutParams.height = result;
     
         localLayoutParams.format = PixelFormat.TRANSPARENT;
-    
-        customViewGroup view = new customViewGroup(context);
-    
-        manager.addView(view, localLayoutParams);
+
+        if(lastViewGroup == null)
+            lastViewGroup = new customViewGroup(context);
+
+        manager.addView(lastViewGroup, localLayoutParams);
+    }
+
+    public static void stopPreventStatusBarExpansion(Context context) {
+        WindowManager manager = ((WindowManager) context.getApplicationContext()
+                .getSystemService(Context.WINDOW_SERVICE));
+
+        if(lastViewGroup != null) {
+            manager.removeView(lastViewGroup);
+            lastViewGroup = null;
+        }
     }
     
     public static class customViewGroup extends ViewGroup {
