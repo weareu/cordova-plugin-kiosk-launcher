@@ -41,7 +41,7 @@ public class KioskActivity extends CordovaActivity {
         context = getWindow().getContext();
 
         loadUrl(launchUrl);
-        preventStatusBarExpansion(context);
+        //preventStatusBarExpansion(context);
     }
     
     public static void preventStatusBarExpansion(Context context) {
