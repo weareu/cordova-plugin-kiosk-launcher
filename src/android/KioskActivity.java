@@ -41,7 +41,7 @@ public class KioskActivity extends CordovaActivity {
         context = getWindow().getContext();
 
         loadUrl(launchUrl);
-        //preventStatusBarExpansion(context);
+        preventStatusBarExpansion(context);
     }
     
     public static void preventStatusBarExpansion(Context context) {
@@ -108,10 +108,10 @@ public class KioskActivity extends CordovaActivity {
         super.onPause();
 
         if (kioskModeEnabled) {
-            ActivityManager activityManager = (ActivityManager) getApplicationContext()
+            /*ActivityManager activityManager = (ActivityManager) getApplicationContext()
                     .getSystemService(Context.ACTIVITY_SERVICE);
 
-            activityManager.moveTaskToFront(getTaskId(), 0);
+            activityManager.moveTaskToFront(getTaskId(), 0);*/
         }
 
     }
